@@ -2,7 +2,7 @@
 
  <resources>
 
-  <resource-root path="postgresql-9.4.1212.jre6.jar" />
+  <resource-root path="postgresql-42.3.1.jar" />
 
  </resources>
 
