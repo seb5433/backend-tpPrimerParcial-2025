@@ -169,7 +169,7 @@
                         <password>postgres</password>
                     </security>
                 </datasource>
-                <datasource jndi-name="java:jboss/datasources/parcial" pool-name="PruebaPostgres" enabled="true" use-java-context="true">
+                <datasource jndi-name="java:jboss/datasources/parcial" pool-name="EcommerceBD" enabled="true" use-java-context="true">
                     <connection-url>jdbc:postgresql://localhost:5432/backend</connection-url>
                     <driver>postgres</driver>
                     <pool>
