@@ -1,0 +1,454 @@
+{
+	"info": {
+		"_postman_id": "7765cad3-ebe3-4f4d-a729-4b69bf742d9d",
+		"name": "Backend API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18772198"
+	},
+	"item": [
+		{
+			"name": "CRUD Categorias",
+			"item": [
+				{
+					"name": "Listar categorías",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{backend-host}}/{{nombre-war}}/categorias",
+							"host": [
+								"{{backend-host}}"
+							],
+							"path": [
+								"{{nombre-war}}",
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear categoría",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\" : \"TV\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{backend-host}}/{{nombre-war}}/categorias",
+							"host": [
+								"{{backend-host}}"
+							],
+							"path": [
+								"{{nombre-war}}",
+								"categorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar categoría",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\" : \"TV\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{backend-host}}/{{nombre-war}}/categorias/:idCategoria",
+							"host": [
+								"{{backend-host}}"
+							],
+							"path": [
+								"{{nombre-war}}",
+								"categorias",
+								":idCategoria"
+							],
+							"variable": [
+								{
+									"key": "idCategoria",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar categoría",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{backend-host}}/{{nombre-war}}/categorias/:idCategoria",
+							"host": [
+								"{{backend-host}}"
+							],
+							"path": [
+								"{{nombre-war}}",
+								"categorias",
+								":idCategoria"
+							],
+							"variable": [
+								{
+									"key": "idCategoria",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CRUD Productos",
+			"item": [
+				{
+					"name": "Listar productos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{backend-host}}/{{nombre-war}}/productos",
+							"host": [
+								"{{backend-host}}"
+							],
+							"path": [
+								"{{nombre-war}}",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear producto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Iphone 15\",\n    \"categoria\": {\n        \"idCategoria\": 2\n    },\n    \"precioVenta\": 15000000,\n    \"cantidadExistente\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{backend-host}}/{{nombre-war}}/productos",
+							"host": [
+								"{{backend-host}}"
+							],
+							"path": [
+								"{{nombre-war}}",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar producto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Iphone 15\",\n    \"categoria\": {\n        \"idCategoria\": 2\n    },\n    \"precioVenta\": 15000000,\n    \"cantidadExistente\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{backend-host}}/{{nombre-war}}/productos/:idProducto",
+							"host": [
+								"{{backend-host}}"
+							],
+							"path": [
+								"{{nombre-war}}",
+								"productos",
+								":idProducto"
+							],
+							"variable": [
+								{
+									"key": "idProducto",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar producto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{backend-host}}/{{nombre-war}}/productos/:idProducto",
+							"host": [
+								"{{backend-host}}"
+							],
+							"path": [
+								"{{nombre-war}}",
+								"productos",
+								":idProducto"
+							],
+							"variable": [
+								{
+									"key": "idProducto",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CRUD Clientes",
+			"item": [
+				{
+					"name": "Listar clientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{backend-host}}/{{nombre-war}}/clientes",
+							"host": [
+								"{{backend-host}}"
+							],
+							"path": [
+								"{{nombre-war}}",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Kyara\",\n    \"apellido\": \"Popov\",\n    \"cedula\": 5888887,\n    \"email\": \"kyarapopov@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{backend-host}}/{{nombre-war}}/clientes",
+							"host": [
+								"{{backend-host}}"
+							],
+							"path": [
+								"{{nombre-war}}",
+								"clientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar cliente",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Gustavo\",\n    \"apellido\": \"Franco\",\n    \"cedula\": 5888888,\n    \"email\": \"ca.sebastianlv@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{backend-host}}/{{nombre-war}}/clientes/:idCliente",
+							"host": [
+								"{{backend-host}}"
+							],
+							"path": [
+								"{{nombre-war}}",
+								"clientes",
+								":idCliente"
+							],
+							"variable": [
+								{
+									"key": "idCliente",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar cliente",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{backend-host}}/{{nombre-war}}/clientes/:idCliente",
+							"host": [
+								"{{backend-host}}"
+							],
+							"path": [
+								"{{nombre-war}}",
+								"clientes",
+								":idCliente"
+							],
+							"variable": [
+								{
+									"key": "idCliente",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CRUD Ventas",
+			"item": [
+				{
+					"name": "Listar ventas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{backend-host}}/{{nombre-war}}/ventas",
+							"host": [
+								"{{backend-host}}"
+							],
+							"path": [
+								"{{nombre-war}}",
+								"ventas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear venta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idCliente\": 1,\n    \"detalles\": [\n        {\n            \"idProducto\": 2,\n            \"cantidad\": 2\n        },\n        {\n            \"idProducto\": 2,\n            \"cantidad\": 2\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{backend-host}}/{{nombre-war}}/ventas",
+							"host": [
+								"{{backend-host}}"
+							],
+							"path": [
+								"{{nombre-war}}",
+								"ventas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar cliente",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nombre\": \"Gustavo\",\n    \"apellido\": \"Franco\",\n    \"cedula\": 5888888,\n    \"email\": \"ca.sebastianlv@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{backend-host}}/{{nombre-war}}/clientes/:idCliente",
+							"host": [
+								"{{backend-host}}"
+							],
+							"path": [
+								"{{nombre-war}}",
+								"clientes",
+								":idCliente"
+							],
+							"variable": [
+								{
+									"key": "idCliente",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar cliente",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{backend-host}}/{{nombre-war}}/clientes/:idCliente",
+							"host": [
+								"{{backend-host}}"
+							],
+							"path": [
+								"{{nombre-war}}",
+								"clientes",
+								":idCliente"
+							],
+							"variable": [
+								{
+									"key": "idCliente",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detalles venta",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
