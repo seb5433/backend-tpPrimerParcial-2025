@@ -2,9 +2,7 @@ package py.com.progweb.parcial.model;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -24,7 +21,7 @@ public class Venta {
     @Column(name = "id_venta")
     private Integer idVenta;
 
-    @Column(name = "fecha", nullable = false)
+    @Column(name = "fecha", nullable = false, insertable = false, updatable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime fecha;
 
     @ManyToOne
@@ -33,9 +30,6 @@ public class Venta {
 
     @Column(name = "total", nullable = false, precision = 10, scale = 2)
     private BigDecimal total;
-
-    @OneToMany(mappedBy = "venta", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<DetalleVenta> detalleVentas;
 
     public Integer getIdVenta() {
         return idVenta;
@@ -69,12 +63,4 @@ public class Venta {
         this.total = total;
     }
 
-    public List<DetalleVenta> getDetalleVentas() {
-        return detalleVentas;
-    }
-
-    public void setDetalleVentas(List<DetalleVenta> detalleVentas) {
-        this.detalleVentas = detalleVentas;
-    }
-    
 }

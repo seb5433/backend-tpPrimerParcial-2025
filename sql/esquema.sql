@@ -47,3 +47,6 @@ CREATE TABLE detalle_venta (
     CONSTRAINT fk_detalleventa_producto FOREIGN KEY (id_producto)
         REFERENCES producto (id_producto)
 );
+
+
+ALTER TABLE venta ALTER COLUMN fecha SET DEFAULT CURRENT_TIMESTAMP;
