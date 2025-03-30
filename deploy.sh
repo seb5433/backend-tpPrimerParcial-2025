@@ -38,14 +38,12 @@ cp "$WAR_FILE" "$WILDFLY_DEPLOYMENTS" || { echo "Fallo el copiado del archivo!";
 echo "Despliegue exitoso!"
 
 
-# Chequear que WildFly esté corriendo
-if ! pgrep -x "standalone.sh" > /dev/null
-then
-    echo "WildFly no está corriendo. Iniciando WildFly..."
-    # Navegar al directorio de WildFly
-    cd ../wildfly-18.0.1.Final/bin || { echo "No se pudo ingresar al directorio /wildfly-18.0.1.Final/bin"; exit 1; }
-    echo "Directorio actual: $(pwd)"
-    # Iniciar WildFly
-    ./standalone.sh -c standalone-full.xml &
-    echo "WildFly iniciado!"
-fi
+# Reiniciar WildFly
+cd ../wildfly-18.0.1.Final/bin || { echo "No se pudo ingresar al directorio /wildfly-18.0.1.Final/bin"; exit 1; }
+echo "Directorio actual: $(pwd)"
+
+# Cerrar Wildfly
+./jboss-cli.sh --connect command=:shutdown
+
+# Iniciar WildFly
+./standalone.sh
