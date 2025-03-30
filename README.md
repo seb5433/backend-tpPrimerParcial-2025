@@ -18,3 +18,9 @@ Primer parcial de backend 2025 fpuna
 ## Como levantar el proyecto
 1. Clonar el repositorio
 2. Correr el comando ./deploy.sh
+
+
+## Postman
+- En la carpeta postman se encuentra un archivo json con las request para probar el proyecto
+
+
