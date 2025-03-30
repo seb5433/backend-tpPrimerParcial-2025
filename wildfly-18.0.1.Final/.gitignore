@@ -22,4 +22,4 @@ replay_*.log
 *tmp/
 *log/
 standalone_xml_history/
-data/content
+data/
