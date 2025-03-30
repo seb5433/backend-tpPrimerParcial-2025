@@ -4,6 +4,7 @@
       <jta-data-source>java:jboss/datasources/parcial</jta-data-source>
       <class>py.com.progweb.parcial.model.Producto</class>
       <class>py.com.progweb.parcial.model.Categoria</class>
+      <class>py.com.progweb.parcial.model.Cliente</class>
       <properties>
          <property name="hibernate.id.new_generator_mappings" value="true"/>
          <property name="hibernate.show_sql" value="true" />
