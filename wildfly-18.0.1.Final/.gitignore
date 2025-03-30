@@ -19,3 +19,7 @@ testsuite/server-migration-test-interactive.sh
 testsuite/*.log
 hs_err_*.log
 replay_*.log
+*tmp/
+*log/
+standalone_xml_history/
+data/content
