@@ -7,7 +7,6 @@ target
 *~
 local-test
 out
-lib
 dependency-reduced-pom.xml
 hotspot.log
 .DS_Store
