@@ -6,9 +6,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.ejb.EJB;
+import javax.mail.MessagingException;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -23,6 +25,7 @@ import py.com.progweb.parcial.model.Cliente;
 import py.com.progweb.parcial.model.DetalleVenta;
 import py.com.progweb.parcial.model.Producto;
 import py.com.progweb.parcial.model.Venta;
+import py.com.progweb.parcial.utils.EmailService;
 import py.com.progweb.parcial.dto.VentaDTO;
 import py.com.progweb.parcial.dto.DetalleVentaDTO;
 
@@ -150,6 +153,19 @@ public class VentaREST {
             // Actualizar el total de la venta
             venta.setTotal(total);
             em.merge(venta);
+
+            try {
+                TypedQuery<DetalleVenta> query = em.createQuery(
+                    "SELECT d FROM DetalleVenta d WHERE d.venta.idVenta = :idVenta", 
+                    DetalleVenta.class
+                );
+                query.setParameter("idVenta", venta.getIdVenta());
+                List<DetalleVenta> detalles = query.getResultList();
+                
+                EmailService.enviarDetalleVenta(venta, detalles);
+            } catch (MessagingException e) {
+                System.err.println("Error enviando email: " + e.getMessage());
+            }
 
             return Response.status(Response.Status.CREATED)
                     .entity("Venta registrada exitosamente con ID: " + venta.getIdVenta())
