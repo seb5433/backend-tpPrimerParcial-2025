@@ -8,11 +8,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import javax.persistence.TypedQuery;
 
-import py.com.progweb.parcial.utils.EmailService;
-import py.com.progweb.parcial.model.DetalleVenta;
-import javax.mail.MessagingException;
 
 import py.com.progweb.parcial.ejb.ClienteDAO;
 import py.com.progweb.parcial.ejb.VentaDAO;
@@ -46,20 +42,6 @@ public class VentaDAOImpl implements VentaDAO {
 
         em.persist(venta);
         em.flush();
-        
-        //TODO Arreglar el envio de Email para que se envie el detalle de la venta
-        try {
-            TypedQuery<DetalleVenta> query = em.createQuery(
-                "SELECT d FROM DetalleVenta d WHERE d.venta.idVenta = :idVenta", 
-                DetalleVenta.class
-            );
-            query.setParameter("idVenta", venta.getIdVenta());
-            List<DetalleVenta> detalles = query.getResultList();
-            
-            EmailService.enviarDetalleVenta(venta, detalles);
-        } catch (MessagingException e) {
-            System.err.println("Error enviando email: " + e.getMessage());
-        }
     }
 
     @Override
